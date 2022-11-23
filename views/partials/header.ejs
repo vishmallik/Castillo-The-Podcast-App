@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <script src="https://kit.fontawesome.com/6ff1e80dcd.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <title>Castillo</title>
+</head>
+
+<body class="f">
+    <header class=" bg-amber-400 py-1 ">
+        <div class=" flex container mx-auto justify-between items-center">
+            <h1 class="flex items-center">
+                <div class="w-24 px-2">
+                    <img class="w-full" src="/images/logo.png" alt="logo">
+                </div> <span class="text-3xl text-white font-bold">Castillo</span>
+            </h1>
+            <nav>
+                <ul class="flex justify-between text-white items-center">
+                    <li class="px-6 font-semibold hover:text-red-400 text-xl">
+                        <a href="/">Home</a>
+                    </li>
+                    <li class="px-6 font-semibold hover:text-red-400 text-xl">
+                        <a href="/podcasts">Podcasts</a>
+                    </li>
+                    <li class="px-6 font-semibold hover:text-red-400 text-xl">
+                        <a href="">About</a>
+                    </li>
+                    <% if(user && user.admin){%>
+                    <li class="px-6 font-semibold hover:text-red-400 text-xl">
+                        <a href="/podcasts/verify">Verify Podcasts</a>
+                    </li>
+                    <% }%>
+                    <% if(!user){%>
+                    <li class="px-6 font-semibold hover:text-red-400 text-xl">
+                        <a href="/users/admin">Register Admin</a>
+                    </li>
+                    <%}%>
+                    <%if(user){%>
+
+                    <li class="px-6 font-semibold text-xl border-2 border-white border-solid rounded-lg p-2">
+                        <i class="fa-solid fa-user"> </i>
+                        <p class="inline pl-4"> <%=user.name%></p>
+                    </li>
+                    <li class="px-6 font-semibold hover:text-red-400 text-xl">
+                        <a href="/users/logout">Logout</a>
+                    </li>
+
+                    <%}%>
+                   
+                </ul>
+            </nav>
+        </div>
+    </header>

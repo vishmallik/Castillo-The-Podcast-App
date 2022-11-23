@@ -1,0 +1,35 @@
+<%- include('partials/header') -%>
+<main>
+    <section class="bg-yellow-200 py-10 pb-28">
+        <form action="/podcasts" method="post"
+            class="flex justify-between flex-col container mx-auto border-2 border-orange-400 rounded-xl border-solid p-6  bg-orange-500 bg-opacity-30">
+            <label for="" class="mx-auto text-2xl font-semibold py-2">Add New Podcast</label>
+
+
+            <input type="text" placeholder="Title" name="title" class="p-3 my-2 mx-10 rounded-lg text-gray-900">
+            <input type="text" placeholder="Featuring" name="featuring" class="p-3 my-2 mx-10 rounded-lg text-gray-900">
+            <input type="text" placeholder="Image URL" name="img" class="p-3 my-2 mx-10 rounded-lg text-gray-900">
+            <textarea name="description" placeholder="description" id="" cols="30" rows="10"
+                class="p-3 my-2 mx-10 rounded-lg text-gray-900"></textarea>
+            <%if(user.admin){%>
+            <div class=" p-2 my-2 mx-10 text-white text-xl">
+                <input type="radio" value="Free" name="type" id="free" checked>
+                <label for="free" class="pr-8">Free </label>
+                <input type="radio" value="VIP" name="type" id="vip">
+                <label for="vip" class="pr-8">VIP </label>
+                <input type="radio" value="Premium" name="type" id="premium">
+                <label for="premium">Premium </label>
+            </div>
+            <% } else{%>
+            <input type="radio" value="Free" name="type" id="free" checked hidden>
+            <%}%>
+            <input type="text" placeholder="Podcast URL" name="url" class="p-3 my-2 mx-10 rounded-lg text-gray-900">
+
+            <input type="submit" value="Submit Podcast"
+                class="p-3 my-2 mx-10 rounded-lg bg-orange-400 font-bold text-xl cursor-pointer">
+        </form>
+    </section>
+
+
+</main>
+<%-include('partials/footer') -%>

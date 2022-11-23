@@ -1,0 +1,36 @@
+<%- include('partials/header') -%>
+<main>
+    <section class="bg-[url('/images/admin.jpg')] text-white flex">
+        <div class="basis-3/5">
+            <h1 class="mx-auto pt-64 text-9xl font-bold pl-24">Welcome to Castillo!!!</h1>
+            <h2 class="mx-auto pt-10 text-2xl pl-28">Sign Up or Log in to get Started...</h2>
+            <h2 class="mx-auto pt-10 mb-52 text-red-500 text-2xl pl-28">Please go back if you are not an Admin</h2>
+
+        </div>
+
+        <div class="basis-2/5 pr-40 pb-4">
+            <form action="/users/register" method="post"
+                class="flex justify-between flex-col container mx-auto border-2 border-orange-400 rounded-xl border-solid p-6 mt-10 mr-10 bg-orange-500 bg-opacity-30">
+                <label for="" class="mx-auto text-2xl font-semibold py-2">Create Account</label>
+                <% if(error){%>
+                <label class="text-center text-red-500"><%=error%></label>
+                <%}%>
+               <% if(success){%>
+                <label class="text-center text-green-500"><%=success%></label>
+                <% }%>
+
+                <input type="text" placeholder="Name" name="name" class="p-3 my-2 mx-10 rounded-lg text-gray-900">
+                <input type="email" placeholder="Email" name="email" class="p-3 my-2 mx-10 rounded-lg text-gray-900">
+                <input type="password" placeholder="Password" name="password"
+                    class="p-3 my-2 mx-10 rounded-lg text-gray-900">
+                <div class=" p-2 my-2 mx-10 text-white text-xl">
+                    <input type="radio" value="Premium" name="type" id="premium" checked hidden>
+                    <input type="radio" value="true" name="admin" checked hidden>
+                </div>
+                <input type="submit" value="Create Account"
+                    class="p-3 my-2 mx-10 rounded-lg bg-orange-400 font-bold text-xl cursor-pointer">
+            </form>
+
+    </section>
+</main>
+<%-include('partials/footer') -%>

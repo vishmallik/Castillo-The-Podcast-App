@@ -1,0 +1,64 @@
+<%- include('partials/header') -%>
+<main>
+    <section class="bg-[url('/images/podcast2.jpg')] text-white flex">
+        <div class="basis-3/5">
+            <h1 class="mx-auto pt-64 text-9xl font-bold pl-24">Welcome to Castillo!!!</h1>
+            <%if(!user){%>
+            <h2 class="mx-auto pt-10 text-2xl pl-28">Sign Up or Log in to get Started...</h2>
+            <%}else{%>
+            <div class="py-16 mb-44">
+                <a href="/podcasts"
+                    class="mx-auto mt-10 text-2xl ml-28 border-lg border-white border-2 rounded-lg py-4 px-8 hover:text-orange-500 hover:border-orange-500">See
+                    all Podcasts</a>
+
+            </div>
+            <%}%>
+        </div>
+        <%if(!user){%>
+            <div class="basis-2/5 pr-40 pb-4">
+                <form action="/users/register" method="post"
+                    class="flex justify-between flex-col container mx-auto border-2 border-orange-400 rounded-xl border-solid p-6 mt-10 mr-10 bg-orange-500 bg-opacity-30">
+                    <label for="" class="mx-auto text-2xl font-semibold py-2">Create Account</label>
+                    <% if(error){%>
+                    <label class="text-center text-red-500"><%=error%></label>
+                    <%}%>
+               <% if(success){%>
+                    <label class="text-center text-green-500"><%=success%></label>
+                    <% }%>
+
+                    <input type="text" placeholder="Name" name="name" class="p-3 my-2 mx-10 rounded-lg text-gray-900">
+                    <input type="email" placeholder="Email" name="email"
+                        class="p-3 my-2 mx-10 rounded-lg text-gray-900">
+                    <input type="password" placeholder="Password" name="password"
+                        class="p-3 my-2 mx-10 rounded-lg text-gray-900">
+                    <div class=" p-2 my-2 mx-10 text-white text-xl">
+                        <input type="radio" value="Free" name="type" id="free" checked>
+                        <label for="free" class="pr-8">Free User</label>
+                        <input type="radio" value="VIP" name="type" id="vip">
+                        <label for="vip" class="pr-8">VIP User</label>
+                        <input type="radio" value="Premium" name="type" id="premium">
+                        <label for="premium">Premium User</label>
+                    </div>
+                    <input type="submit" value="Create Account"
+                        class="p-3 my-2 mx-10 rounded-lg bg-orange-400 font-bold text-xl cursor-pointer">
+                </form>
+                <div class="mx-auto block text-2xl py-6 text-center">OR</div>
+                <form action="/users/login" method="post"
+                    class="flex justify-between flex-col container mx-auto border-2 border-orange-400 rounded-xl border-solid p-6 mr-10 bg-orange-500 bg-opacity-30">
+                    <label for="" class="mx-auto text-2xl font-semibold py-2">Login</label>
+                    <% if(error){%>
+                    <label class="text-center text-red-500"><%=error%></label>
+                    <%}%>
+                <input type="email" placeholder="Email" name="email" class="p-3 my-2 mx-10 rounded-lg text-gray-900">
+                <input type="password" placeholder="Password" name="password"
+                    class="p-3 my-2 mx-10 rounded-lg text-gray-900">
+                <input type="submit" value="Login"
+                    class="p-2 my-2 mx-10 rounded-lg bg-orange-400 font-bold text-xl cursor-pointer">
+            </form>
+        </div>
+        <%}%>
+
+
+    </section>
+</main>
+<%-include('partials/footer') -%>
